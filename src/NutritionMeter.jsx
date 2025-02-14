@@ -49,8 +49,12 @@ function NutritionMeter() {
     quantity: "",
   });
 
-  console.log(nutritionInfo);
-
+  const [totalCal] = useState({
+    calories: 0,
+    protein: 0,
+    carbs: 0,
+    fat: 0,
+  });
   return (
     <>
       <section>
@@ -122,7 +126,6 @@ function NutritionMeter() {
           className="clear-all"
           onClick={() => {
             setNurtritionInfo([]);
-            console.log(nutritionInfo);
           }}
         >
           Clear All
@@ -149,6 +152,12 @@ function NutritionMeter() {
             </div>
           );
         })}
+      </section>
+      <section>
+        <h3>Total Calories: {totalCal.calories} </h3>
+        <h3>Total Protein: {totalCal.protein}g </h3>
+        <h3>Total Carbs: {totalCal.carbs}g</h3>
+        <h3>Total Fat: {totalCal.fat}g </h3>
       </section>
     </>
   );
